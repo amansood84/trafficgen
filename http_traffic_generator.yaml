@@ -1,0 +1,99 @@
+###### Expected Values
+# endpoint.request.device_type = windows, android, iphone, mac or no value
+# endpoint.request.type = get, post
+# endpoint.request.headers = any valid http header
+global_config:
+  type:
+    duration: ""
+    num_requests: ""
+  debug: False
+endpoint:
+  - vip: "10.146.77.111" 
+    protocol: "http"
+    request:
+      - type: "get"
+        path: "/"
+        device_type: "windows"
+        headers:
+          - name: "content-type"
+            value: "text/plain"
+              #        cookies:
+              #          - name: "session_id"
+              #            value: "b8a10ff2-7482-4122-922f-b0626263cedf" 
+      - type: "get"
+        path: "/employee.html"
+        device_type: "windows"
+        headers:
+          - name: "content-type"
+            value: "application-json"
+  - vip: "10.146.77.111" 
+    protocol: "https"
+    request:
+      - type: "get"
+        path: "/company"
+        device_type: "windows"
+        headers:
+          - name: "content-type"
+            value: "text/plain"
+          - name: "host"
+            value: "webapp2.net"
+      - type: "get"
+        path: "/employee.html"
+        device_type: "android"
+        headers:
+          - name: "content-type"
+            value: "application-json"
+          - name: "host"
+            value: "webapp2.net"
+  - vip: "10.146.77.110"
+    protocol: "https"
+    tls: "1.1"
+    request:
+      - type: "post"
+        path: "/data"
+        device_type: "mac"
+        headers:
+          - name: "content-type"
+            value: "application/json"
+          - name: "host"
+            value: "webapp1.net"
+        body: '{"data": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Praesent condimentum vitae odio vel hendrerit. In id elementum nisi. Morbi sed mi commodo nunc pharetra rhoncus eget a ipsum. Duis quis tincidunt lacus. Nullam convallis luctus mi nec efficitur arcu posuere sit amet. Ut libero risus accumsan vel mauris ut elementum ultricies odio. Cras aliquet turpis ligula eu gravida mi dapibus a. Cras commodo mollis enim non cursus tortor consectetur ultricies. Etiam sed ipsum ante. Morbi et eros sit amet tellus vulputate dictum. Nullam sodales elit in diam posuere euismod. Lorem ipsum dolor sit amet consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut vehicula eleifend nunc ac suscipit quam tempor sed. Praesent sit amet rhoncus est. Donec eu dui molestie faucibus massa vehicula gravida ligula.Aenean id euismod est quis congue augue. Fusce tempus rhoncus lectus ac vestibulum eros tempus vitae. Donec mollis sit amet ipsum mattis tempus. Sed consequat neque vel elementum mollis. Duis consequat elit ac egestas tincidunt. Mauris quis lobortis sem quis finibus tortor. Quisque condimentum rhoncus ornare. In ut ornare mi sit amet gravida massa. Cras a facilisis lorem. Proin imperdiet nibh eu commodo volutpat. Suspendisse sollicitudin semper diam eget accumsan. Duis in velit sed magna mattis posuere. Sed quam orci cursus ac eros in pharetra luctus urna. Phasellus ultricies nibh ut sapien scelerisque at viverra elit tincidunt. Proin suscipit pellentesque erat id viverra. Ut sit amet dolor libero. Nulla porttitor consectetur finibus. Sed ullamcorper euismod nisi sed aliquam orci sollicitudin ac. Phasellus sagittis urna quis quam elementum ultricies. Aliquam erat volutpat. Maecenas eleifend ornare congue. Sed gravida metus finibus consequat vehicula lacus tellus convallis ligula a aliquam libero augue vulputate dui. Donec vitae felis vitae augue luctus ullamcorper. Orci varius natoque penatibus et magnis dis parturient montes nascetur ridiculus mus. Duis nec tellus congue augue laoreet pharetra et in dolor. Pellentesque porttitor id tortor at facilisis. Morbi non augue eu orci venenatis vulputate non at nulla. Donec dolor ante bibendum in lobortis vel mattis vel metus. In porttitor lorem neque vel suscipit risus porttitor vel. Nulla rhoncus interdum odio sit amet semper. Sed elementum volutpat est eu elementum sem tincidunt ac. Mauris et nulla risus. Sed porta ligula vel ullamcorper lobortis. Cras lobortis imperdiet mauris non semper nisl feugiat sit amet. Nulla tincidunt lorem quis ligula consectetur elementum. Nullam eu cursus nunc ac consectetur odio. Fusce non pulvinar nunc. Phasellus in velit consequat consequat augue ac varius tortor. Donec sit amet facilisis velit. Proin dictum sem sed mollis viverra. In porttitor arcu id velit aliquam commodo. Nunc sodales massa nunc vitae rhoncus magna ornare id. In imperdiet sem nec enim tempus sodales. Nunc nec pretium nq"}'
+      - type: "get"
+        path: "/"
+        device_type: "iphone"
+        headers:
+          - name: "host"
+            value: "webapp1.net"
+          - name: "content-type"
+            value: "video/mp4"
+  - vip: "10.146.77.110"
+    protocol: "http"
+    request:
+      - type: "get"
+        path: "/page1.html"
+        device_type: "windows"
+        headers:
+          - name: "content-type"
+            value: "text/html"
+      - type: "get"
+        path: "/page1.html"
+        device_type: "android"
+        headers:
+          - name: "content-type"
+            value: "application/x-www-form-urlencoded"
+          - name: "host"
+            value: "webapp1.net"
+  - vip: "10.146.77.111"
+    protocol: "https"
+    request:
+      - type: "get"
+        path: "/page2.html"
+        device_type: "android"
+        headers:
+          - name: "content-type"
+            value: "application/x-www-form-urlencoded"
+          - name: "host"
+            value: "webapp2.net"
+      - type: "get"
+        path: "/invalid"
+        device_type: "windows"
